@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Heart beat animation</title>
 
-    <!-- CSS hiệu ứng tim + thư + hoa + nút -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="heart_beat-animation.css" />
-    <!-- CSS cho nút nhạc -->
     <link rel="stylesheet" href="music.css" />
   </head>
   <body>
-    <!-- Nền + trái tim đập -->
     <div class="back"></div>
     <div class="love"></div>
     <div class="love-1"></div>
     <div class="love-2"></div>
 
-    <!-- Hộp chữ gõ từ từ (lá thư) -->
     <div id="typewriter" class="typing" aria-live="polite"></div>
 
-    <!-- Nút khi gõ xong -->
     <button id="loveBtn" class="love-btn hidden" aria-label="LOVE BABE">
       <span>LOVE BABE</span>
       <svg
@@ -37,7 +39,6 @@
       </svg>
     </button>
 
-    <!-- Bông hoa (ẩn trước) -->
     <div id="flower" class="flower hidden" aria-hidden="true">
       <div class="petal" style="--i: 0"></div>
       <div class="petal" style="--i: 1"></div>
@@ -50,11 +51,13 @@
       <div class="core"></div>
     </div>
 
-    <!-- Nhạc nền -->
+    <!-- LƯU Ý: thêm autoplay muted playsinline để iOS/Android cho phép chạy im lặng -->
     <audio
       id="bgm"
       src="assets/music/your_song.mp3"
       preload="auto"
+      autoplay
+      muted
       loop
       playsinline
     ></audio>
@@ -62,7 +65,6 @@
       Bật nhạc
     </button>
 
-    <!-- Scripts -->
     <script src="typewriter.js"></script>
     <script src="music.js"></script>
     <script src="finish.js"></script>
