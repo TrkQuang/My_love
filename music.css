@@ -1,0 +1,31 @@
+.music-btn {
+  position: fixed;
+  z-index: 300;
+  left: 50%;
+  top: 64px;
+  transform: translateX(-50%);
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.music-btn.hidden {
+  display: none;
+}
+.music-hint {
+  position: fixed;
+  z-index: 300;
+  right: 10px;
+  bottom: 10px;
+  color: #fff;
+  opacity: 0.7;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}

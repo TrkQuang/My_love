@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart beat animation</title>
+
+    <!-- CSS hiệu ứng tim + thư + hoa + nút -->
+    <link rel="stylesheet" href="heart_beat-animation.css" />
+    <!-- CSS cho nút nhạc -->
+    <link rel="stylesheet" href="music.css" />
+  </head>
+  <body>
+    <!-- Nền + trái tim đập -->
+    <div class="back"></div>
+    <div class="love"></div>
+    <div class="love-1"></div>
+    <div class="love-2"></div>
+
+    <!-- Hộp chữ gõ từ từ (lá thư) -->
+    <div id="typewriter" class="typing" aria-live="polite"></div>
+
+    <!-- Nút khi gõ xong -->
+    <button id="loveBtn" class="love-btn hidden" aria-label="LOVE BABE">
+      <span>LOVE BABE</span>
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 21s-6.716-4.327-9.243-8.243C.472 9.35 2.514 5 6.757 5c1.864 0 3.348.843 4.243 2.02C11.895 5.843 13.379 5 15.243 5 19.486 5 21.528 9.35 21.243 12.757 18.716 16.673 12 21 12 21z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+
+    <!-- Bông hoa (ẩn trước) -->
+    <div id="flower" class="flower hidden" aria-hidden="true">
+      <div class="petal" style="--i: 0"></div>
+      <div class="petal" style="--i: 1"></div>
+      <div class="petal" style="--i: 2"></div>
+      <div class="petal" style="--i: 3"></div>
+      <div class="petal" style="--i: 4"></div>
+      <div class="petal" style="--i: 5"></div>
+      <div class="petal" style="--i: 6"></div>
+      <div class="petal" style="--i: 7"></div>
+      <div class="core"></div>
+    </div>
+
+    <!-- Nhạc nền -->
+    <audio
+      id="bgm"
+      src="assets/music/your_song.mp3"
+      preload="auto"
+      loop
+      playsinline
+    ></audio>
+    <button id="musicBtn" class="music-btn hidden" aria-label="Bật nhạc">
+      Bật nhạc
+    </button>
+
+    <!-- Scripts -->
+    <script src="typewriter.js"></script>
+    <script src="music.js"></script>
+    <script src="finish.js"></script>
+  </body>
+</html>

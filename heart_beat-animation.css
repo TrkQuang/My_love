@@ -1,0 +1,304 @@
+/* ===== Trái tim đập (giữ bản cũ) ===== */
+h2 {
+  font-size: 2rem;
+  font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Geneva,
+    Verdana, sans-serif;
+  color: rgb(65, 20, 37);
+  text-shadow: -2px 1px 10px rgb(255, 180, 193);
+  position: absolute;
+  z-index: 100;
+  left: 34%;
+  top: 50%;
+  opacity: 0.9;
+}
+.back {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: back 3s infinite;
+}
+.love,
+.love-1,
+.love-2 {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: rotate(-45deg);
+}
+.love {
+  background: rgb(207, 105, 112);
+  width: 250px;
+  height: 250px;
+  animation: love 3s 1s infinite;
+}
+.love::before,
+.love::after {
+  content: "";
+  position: absolute;
+  background: rgb(207, 105, 112);
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
+.love::before {
+  top: -125px;
+  left: 0;
+}
+.love::after {
+  left: 125px;
+  top: 0;
+}
+@keyframes back {
+  50% {
+    background: rgb(250, 211, 214);
+  }
+}
+@keyframes love {
+  50% {
+    transform: scale(0.3) rotate(-45deg);
+  }
+}
+
+.love-1 {
+  background: rgb(231, 132, 139);
+  width: 125px;
+  height: 125px;
+  animation: love-1 2s 1.7s infinite;
+}
+.love-1::before,
+.love-1::after {
+  content: "";
+  position: absolute;
+  background: rgb(231, 132, 139);
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+}
+.love-1::before {
+  top: -62.5px;
+  left: 0;
+}
+.love-1::after {
+  left: 62.5px;
+  top: 0;
+}
+@keyframes love-1 {
+  50% {
+    transform: scale(0.5) rotate(-45deg);
+  }
+}
+
+.love-2 {
+  background: pink;
+  width: 62.5px;
+  height: 62.5px;
+  animation: love-2 1s 1s infinite;
+}
+.love-2::before,
+.love-2::after {
+  content: "";
+  position: absolute;
+  background: pink;
+  border-radius: 50%;
+  width: 62.5px;
+  height: 62.5px;
+}
+.love-2::before {
+  top: -31.25px;
+  left: 0;
+}
+.love-2::after {
+  left: 31.25px;
+  top: 0;
+}
+@keyframes love-2 {
+  50% {
+    transform: scale(1.25) rotate(-45deg);
+  }
+}
+
+/* Khi “biến mất” để nhường chỗ cho bông hoa */
+.heart-vanish {
+  animation: vanish 0.7s ease forwards;
+}
+@keyframes vanish {
+  to {
+    transform: translateY(20px) scale(0.3) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* ===== Hộp thư (typewriter) giữa màn hình ===== */
+#typewriter {
+  position: fixed;
+  z-index: 200;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 90vw);
+  max-height: 72vh;
+  overflow: auto;
+  padding: 16px 20px;
+  border-radius: 14px;
+  color: #fff;
+  line-height: 1.8;
+  font-size: clamp(14px, 2.4vw, 18px);
+  white-space: pre-wrap;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  transform-origin: bottom center;
+}
+#typewriter.hidden {
+  display: none;
+}
+.typing::after {
+  content: "|";
+  margin-left: 4px;
+  color: #ffe1ea;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+/* Đóng lá thư */
+#typewriter.closing {
+  transform: translate(-50%, -50%) scaleY(0.1);
+  opacity: 0;
+}
+
+/* ===== Nút LOVE BABE ===== */
+.love-btn {
+  position: fixed;
+  z-index: 220;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(20px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(180deg, #ff9cc3, #ff5fa3);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(255, 95, 163, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+.love-btn.hidden {
+  display: none;
+}
+.love-btn.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.love-btn:hover {
+  transform: translateX(-50%) translateY(-2px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(255, 95, 163, 0.6);
+}
+
+/* ===== Bông hoa xinh đẹp ===== */
+.flower {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 150;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.flower.show {
+  opacity: 1;
+  transform: scale(1);
+}
+.petal {
+  position: absolute;
+  width: 120px;
+  height: 180px;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 90%;
+  transform: translate(-50%, -100%) rotate(calc(var(--i) * 45deg));
+  border-radius: 60% 60% 50% 50%;
+  background: radial-gradient(
+    90px 140px at 50% 25%,
+    #fff6 0%,
+    #ffc2dd 38%,
+    #ff88c0 60%,
+    #d94a98 100%
+  );
+  filter: drop-shadow(0 8px 22px rgba(255, 105, 160, 0.35));
+  animation: petalPulse 3.2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.12s);
+}
+@keyframes petalPulse {
+  50% {
+    transform: translate(-50%, -100%) rotate(calc(var(--i) * 45deg)) scale(1.05);
+  }
+}
+.core {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    #fff7 0%,
+    #ffe680 22%,
+    #ffd038 60%,
+    #f5a623 100%
+  );
+  box-shadow: 0 6px 30px rgba(255, 196, 0, 0.45),
+    inset 0 4px 8px rgba(255, 255, 255, 0.4);
+}
+
+/* ===== Chữ bay lên liên tục ===== */
+.float-word {
+  position: fixed;
+  bottom: -40px;
+  left: 0;
+  z-index: 180;
+  pointer-events: none;
+  font-family: "Dancing Script", cursive, system-ui;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.55),
+    0 6px 18px rgba(255, 105, 180, 0.45);
+  will-change: transform, opacity;
+  animation: rise var(--dur, 10s) linear forwards;
+  opacity: 0;
+}
+@keyframes rise {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.95);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(var(--dx, 0px)) scale(1.1);
+    opacity: 0;
+  }
+}
